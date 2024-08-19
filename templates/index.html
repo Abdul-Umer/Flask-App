@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+ {% block body %} 
+ 
+  
+
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          
+          {% for post in posts %}
+            <div class="post-preview">
+              <a href="post/{{post.slug}}">
+                <h2 class="post-title">
+                  {{post.title}}
+                </h2>
+                <h3 class="post-subtitle">
+                {{post.tagline}}
+              </h3>
+            </a>
+    
+            <p class="post-meta">Posted by Admin
+              <a href="#">Start Bootstrap</a>
+              on {{post.date}}</p>
+          </div>
+          {{post.content[0:143]}}...
+          <hr>
+          {% endfor %}
+
+          <!--fetch using lor loop-->
+         
+          <!-- Pager -->
+          <div class="d-flex justify-content-between">
+            {% if number!=0 %}
+            <div>
+                <a class="btn btn-primary" href="{{next}}">Next →</a>
+            </div>
+            {% endif %}
+            <div>
+                <a class="btn btn-primary" href="{{prev}}">Prev →</a>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <hr>
+
+{% endblock %}
+
